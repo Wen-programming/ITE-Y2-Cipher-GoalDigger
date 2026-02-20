@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/css/main.css" />
+    <link rel="stylesheet" href="./src/css/mediaQuery.css" />
+    <script
+      src="https://kit.fontawesome.com/207833a6b8.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Cryptography</title>
+  </head>
+  <body>
+    <!-- Nav bar -->
+    <div class="navbar">
+      <div class="website-logo">GoalDigger</div>
+
+      <button class="menuBar" id="menuBar">
+        Content <i class="fa-solid fa-caret-down"></i>
+      </button>
+    </div>
+
+    <!--  Side bar -->
+    <div class="side-navbar">
+      <div class="content">
+        <div class="content-header">
+          <h2 class="content-title">Content</h2>
+        </div>
+        <div class="contentButton"></div>
+        <ul class="content-outline">
+          <li>
+            <a href="#classical-cryptography">1. Classical Cryptography</a>
+          </li>
+          <ul class="sub-content-outline">
+            <li><a href="#caesar-cipher">1.1 Caesar Cipher</a></li>
+            <li>
+              <a href="#general-shift-cipher">1.2 General Shift Cipher</a>
+            </li>
+          </ul>
+          <li><a href="#rsa-cryptography">2. RSA Cryptography</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main  -->
+    <div class="main">
+      <section class="selfIntroduce-header">
+        <div class="first-content">
+          <img class="ruppLogo" src="./src/images/rupp_logo.png" alt="" />
+
+          <div class="universityName">
+            <div class="universityNameEn">Royal University of Phnom Penh</div>
+            <div class="universityNameKh">សកលវិទ្យាល័យភូមិន្ទភ្នំពេញ</div>
+          </div>
+
+          <img
+            class="faculty"
+            src="./src/images/ITE_LOGO-removebg-preview.png"
+            alt=""
+          />
+        </div>
+        <div class="second-content">
+          <p class="project-title">ENCRYPTION AND DECRYPTION DEMO</p>
+          <p class="project-submit-to">Submitted to <b>Mr. LIM Seyha</b></p>
+          <p class="lecturer-course">Mathematic Lecturer</p>
+        </div>
+        <div class="third-content">
+          <p class="date">25 February 2026</p>
+          <p class="credit">By Goal Digger, Rupp ITE</p>
+        </div>
+      </section>
+      <section class="guide">
+        <div class="guide-header">
+          <h1 class="guide-title" style="text-decoration: underline">
+            About Website
+          </h1>
+        </div>
+        <div class="guide-content">
+          <i class="fa-solid fa-hand-point-right"></i>
+          This demonstration presents applications of number theory, including
+          classical encryption-decryption methods and the RSA algorithm. In this
+          report, I will describe the algorithm I developed and the work I have
+          conducted.
+        </div>
+      </section>
+      <section class="classical-cryptography">
+        <h1
+          class="classical-cryptography-title"
+          id="classical-cryptography"
+          style="text-decoration: underline"
+        >
+          I. Classical Cryptography
+        </h1>
+        <h2
+          class="caesar-cipher"
+          id="caesar-cipher"
+          style="text-decoration: underline"
+        >
+          I.I. Caesar Cipher
+        </h2>
+        <div class="caesar-cipher-content">
+          <p class="caesar-cipher-introduction">
+            Classical cryptography refers to early encryption techniques
+            developed before the modern digital era. These methods were widely
+            used in military, political, and diplomatic communication to protect
+            secret messages. Unlike modern cryptography, classical systems rely
+            on simple mathematical transformations such as shifting or
+            substituting letters.
+
+            <br /><br />
+
+            The Caesar Cipher is one of the earliest and simplest encryption
+            techniques. It was famously used by <b>Julius Caesar</b> to send
+            secret military instructions to his generals. This cipher works by
+            shifting each letter in the plaintext by a fixed number of positions
+            in the alphabet.
+
+            <br /><br />
+
+            For example, when the shift key is 3: A becomes D, B becomes E, C
+            becomes F. When the alphabet reaches Z, it wraps around back to A.
+            <a
+              href="https://en.wikipedia.org/wiki/Caesar_cipher"
+              style="text-decoration: underline; color: white"
+            >
+              <i class="fa-solid fa-hand-point-right"></i> Source</a
+            >
+          </p>
+          <div class="container-wheel">
+            <img
+              src="./src/images/CipherDisk2000.jpg"
+              alt=""
+              class="caesar-cipher-wheel"
+            />
+            <p><b>Image: </b>Caesar Cipher Wheel</p>
+          </div>
+          <div class="caesar-cipher-example">
+            <p>
+              Emperor Julius Caesar made his messages secret by shifting each
+              letter three positions forward in the alphabet.
+            </p>
+            <p>
+              Example -> <br />
+              Plaintext: HELLO <br />
+              Shift Key: 3 <br />Ciphertext: KHOOR
+            </p>
+            <div class="caesar-math">
+              <p>
+                <b>Mathematical Formula:</b><br /><br />
+                Encryption: C = (P + k) mod 26 <br />
+                Decryption: P = (C - k) mod 26 <br /><br />
+
+                Where: <br />
+                P = Position of plaintext letter (A=0, B=1, ... Z=25) <br />
+                C = Position of ciphertext letter <br />
+                k = Shift key <br />
+                26 = Number of letters in the English alphabet
+              </p>
+            </div>
+            <div class="caesar-cipher-bborder">Caesar Cipher Demo</div>
+            <form class="caesar-cipher-enter">
+              <label for="" class="label-caesar-cipher"
+                >Enter your text (Plain text or Cipher text):</label
+              >
+              <input
+                type="text"
+                placeholder="Ex: Hong bao duo duo"
+                class="input-caesar-cipher"
+              />
+              <br />
+              <div class="btn-container">
+                <button class="encrypt-caesar-cipher">Encrypt</button>
+                <button class="decrypt-caesar-cipher">Decrypt</button>
+              </div>
+
+              <br />
+              <label for="" class="label-result-caesar-cipher">Result: </label>
+              <span class="result-caesar-cipher">No Result!</span>
+            </form>
+          </div>
+        </div>
+        <h2
+          class="general-shift-cipher"
+          id="general-shift-cipher"
+          style="text-decoration: underline"
+        >
+          I.II. General Shift Cipher
+        </h2>
+
+        <div class="general-shift-content">
+          <p>
+            The General Shift Cipher is an extension of the Caesar Cipher.
+            Instead of always shifting letters by 3 positions, the shift value
+            can be any integer between 1 and 25.
+
+            <br /><br />
+
+            In fact, the Caesar Cipher is a special case of the General Shift
+            Cipher where the key k = 3.
+
+            <br /><br />
+
+            In this cipher, each letter of the plaintext is shifted forward by a
+            chosen key value k. The encryption and decryption processes follow
+            the same mathematical formula:
+
+            <br /><br />
+
+            Encryption: C = (P + k) mod 26 <br />
+            Decryption: P = (C - k) mod 26
+
+            <br /><br />
+
+            Although this method offers more flexibility than the Caesar Cipher,
+            it remains insecure because it can be broken using brute force or
+            frequency analysis techniques.
+          </p>
+          <form class="general-shift-enter">
+            <!-- Text Input -->
+            <label class="label-general-shift">
+              Enter your text (Plain text or Cipher text):
+            </label>
+
+            <input
+              type="text"
+              placeholder="Ex: CRYPTOGRAPHY"
+              class="input-general-shift-text"
+            />
+
+            <!-- Key Input -->
+            <label class="label-general-shift">
+              Enter Shift Key (1 - 25):
+            </label>
+
+            <input
+              type="number"
+              min="1"
+              max="25"
+              placeholder="Ex: 5"
+              class="input-general-shift-key"
+            />
+
+            <!-- Buttons -->
+            <div class="btn-general-shift-container">
+              <button class="encrypt-general-shift">Encrypt</button>
+
+              <button class="decrypt-general-shift">Decrypt</button>
+            </div>
+
+            <!-- Result -->
+            <label class="label-result-general-shift"> Result: </label>
+
+            <span class="result-general-shift"> No Result! </span>
+          </form>
+        </div>
+        <h1
+          class="rsa-cryptography-title"
+          id="rsa-cryptography"
+          style="text-decoration: underline"
+        >
+          II. RSA Cryptography
+        </h1>
+
+        <div class="rsa-content">
+          <p>
+            RSA (Rivest-Shamir-Adleman) is a public-key cryptographic algorithm
+            introduced in 1977. Unlike classical ciphers, RSA uses number theory
+            and modular arithmetic to securely encrypt and decrypt messages.
+            <br /><br />
+            RSA works by:
+            <br />
+            1. Choosing two prime numbers (p and q) <br />
+            2. Computing n = p x q <br />
+            3. Computing φ(n) = (p-1)(q-1) <br />
+            4. Choosing public key e <br />
+            5. Computing private key d
+            <br /><br />
+            Encryption: C = M^e mod n <br />
+            Decryption: M = C^d mod n
+          </p>
+
+          <div class="rsa-demo-title">RSA Demo</div>
+
+          <form class="rsa-form">
+            <label>Enter Prime p:</label>
+            <input type="number" class="rsa-p" placeholder="Example: 3" />
+
+            <label>Enter Prime q:</label>
+            <input type="number" class="rsa-q" placeholder="Example: 11" />
+
+            <label>Enter Public Key e:</label>
+            <input type="number" class="rsa-e" placeholder="Example: 3" />
+
+            <label>Enter Message (Number less than n):</label>
+            <input type="number" class="rsa-message" placeholder="Example: 7" />
+
+            <div class="rsa-btn-container">
+              <button type="button" class="rsa-encrypt">Encrypt</button>
+              <button type="button" class="rsa-decrypt">Decrypt</button>
+            </div>
+
+            <div class="rsa-result">
+              <p><b>n:</b> <span class="rsa-n">-</span></p>
+              <p><b>φ(n):</b> <span class="rsa-phi">-</span></p>
+              <p><b>Private Key (d):</b> <span class="rsa-d">-</span></p>
+              <p><b>Encrypted:</b> <span class="rsa-encrypted">-</span></p>
+              <p><b>Decrypted:</b> <span class="rsa-decrypted">-</span></p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </body>
+  <script src="./src/js/navbar.js"></script>
+  <script src="./src/js/caesarCipher.js"></script>
+  <script src="./src/js/generalShiftCipher.js"></script>
+  <script src="./src/js/rsa.js"></script>
+</html>

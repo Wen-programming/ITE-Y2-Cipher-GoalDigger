@@ -1,0 +1,578 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Koulen&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  list-style-type: none;
+  text-decoration: none;
+  transition: 0.4s all;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #101828;
+  color: white;
+}
+
+body {
+}
+
+p {
+  font-size: clamp(14px, 1.5vw, 16px);
+  line-height: 1.8;
+}
+/* Navbar */
+.navbar {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid #101828;
+  background-color: #364153;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  z-index: 10;
+}
+.website-logo {
+  font-size: 24px;
+  cursor: pointer;
+  color: #ffd41d;
+  font-weight: 800;
+  font-style: normal;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+}
+.menuBar {
+  padding: 12px 15px;
+  background-color: #101828;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+}
+.menuBar:hover {
+  background-color: #3d495c;
+}
+.fa-bars {
+  color: #fff;
+  font-size: 24px;
+}
+
+/* side-navbar */
+.side-navbar {
+  width: 25%;
+  min-width: 25%;
+  transform: translateY(-300%);
+  height: auto;
+  position: fixed;
+  top: 80px;
+  right: 0;
+  background-color: #101828;
+  padding: 20px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 3;
+}
+.side-navbar.active {
+  transform: translateY(0);
+}
+.content {
+  width: 100%;
+}
+.content-header {
+  width: 100%;
+  position: relative;
+}
+.content-title {
+  color: #fff;
+  margin-block: 10px;
+  display: block;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.content-outline {
+  margin-top: 20px;
+}
+.content-outline li a {
+  color: #fff;
+  display: block;
+  width: 90%;
+  padding: 8px;
+  border-bottom: 1px solid rgb(224, 224, 224);
+}
+.content-outline li a:hover {
+  background-color: #3d495c;
+  color: #fff;
+}
+.sub-content-outline {
+  margin-left: 20px;
+}
+/*  Main */
+.main {
+  /* width: 100%; */
+
+  /* position: relative;
+  top: 80px; */
+  /* background-color: #f9fafb; */
+  /* color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center; */
+  width: 100%;
+  position: relative;
+  top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.selfIntroduce-header {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  background-image: url(../images/unsplash-image.webp);
+  transition: background-size 0.1s linear;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(5px);
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  align-items: center;
+  position: relative;
+  top: 0px;
+  left: 0;
+}
+
+.first-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 20px;
+  left: 0;
+}
+
+.ruppLogo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.faculty {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.universityName {
+  padding-inline: 10px;
+}
+
+.universityNameEn {
+  text-align: center;
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 800;
+  font-family: "Playfair Display", serif;
+}
+
+.universityNameKh {
+  text-align: center;
+  font-family: "Koulen", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.second-content {
+  width: 100%;
+  position: absolute;
+  top: 180px;
+  left: 0;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-inline: 20px;
+}
+
+.project-title {
+  text-align: center;
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 800;
+  font-family: "Playfair Display", serif;
+}
+
+.third-content {
+  width: 100%;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: absolute;
+  top: 300px;
+  left: 0;
+  text-align: center;
+  margin-top: 40px;
+  padding-inline: 20px;
+}
+
+.credit {
+  font-weight: bold;
+}
+
+/* Guide */
+.guide {
+  width: 100%;
+  height: auto;
+  margin-top: 50px;
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #364153;
+  color: white;
+}
+.guide-title {
+  text-align: center;
+  font-weight: 800;
+  font-style: normal;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  margin-bottom: 10px;
+  color: #ffd41d;
+}
+.guide-content {
+  font-size: 18px;
+}
+/* classical-cryptography */
+.classical-cryptography {
+  /* margin-top: 50px;
+  width: 80%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #364153;
+  border-radius: 5px;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  margin-top: 50px;
+  width: 80%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(145deg, #364153, #2a3342);
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+.classical-cryptography:hover {
+  transform: translateY(-5px);
+}
+/* caesar-cipher */
+
+.classical-cryptography-title,
+.caesar-cipher,
+.general-shift-cipher,
+.rsa-cryptography-title {
+  /* font-weight: 800;
+  font-style: normal;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 10px; */
+  font-weight: 800;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 20px;
+  font-size: 26px;
+  color: #ffd41d;
+}
+
+.caesar-cipher-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  justify-content: center;
+  color: white;
+}
+
+.container-wheel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.caesar-cipher-wheel {
+  /* width: 500px;
+  height: 470px;
+  object-fit: cover;
+  margin: 10px; */
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: cover;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.caesar-cipher-example {
+  margin-top: 20px;
+}
+
+.caesar-cipher-enter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.input-caesar-cipher {
+  /* padding: 10px 40px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  padding: 12px 20px;
+  margin: 15px 0;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 16px;
+  background-color: #1f2937;
+  color: white;
+}
+
+.input-caesar-cipher:focus {
+  border: 1px solid #ffd41d;
+  box-shadow: 0 0 8px rgba(255, 212, 29, 0.5);
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 200px;
+  margin: 0 auto;
+}
+
+/* .encrypt-caesar-cipher {
+  padding: 10px 14px;
+  background-color: rgb(16, 16, 229);
+  border-radius: 5px;
+  margin: 10px;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+.encrypt-caesar-cipher:hover {
+  background-color: rgba(0, 0, 255);
+  cursor: pointer;
+}
+.decrypt-caesar-cipher {
+  padding: 10px 14px;
+  background-color: rgb(236, 18, 18);
+  border-radius: 5px;
+  margin: 10px;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+.decrypt-caesar-cipher:hover {
+  background-color: rgba(255, 0, 0);
+  cursor: pointer;
+} */
+.encrypt-caesar-cipher,
+.decrypt-caesar-cipher {
+  padding: 10px 18px;
+  border-radius: 8px;
+  margin: 10px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.encrypt-caesar-cipher {
+  background-color: #2563eb;
+  color: white;
+}
+
+.encrypt-caesar-cipher:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.decrypt-caesar-cipher {
+  background-color: #dc2626;
+  color: white;
+}
+
+.decrypt-caesar-cipher:hover {
+  background-color: #b91c1c;
+  transform: translateY(-2px);
+}
+
+.result-caesar-cipher {
+  font-weight: bold;
+  color: #ffd41d;
+  font-size: 18px;
+  margin-left: 5px;
+}
+.general-shift-content {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.general-shift-demo-title {
+  margin-top: 20px;
+  font-weight: bold;
+  border: 1px solid white;
+  padding: 10px;
+  display: inline-block;
+}
+
+.general-shift-enter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.input-general-shift-text,
+.input-general-shift-key {
+  padding: 12px 20px;
+  margin: 15px 0;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 16px;
+  background-color: #1f2937;
+  color: white;
+}
+.input-general-shift-text:focus,
+.input-general-shift-key:focus {
+  border: 1px solid #ffd41d;
+  box-shadow: 0 0 8px rgba(255, 212, 29, 0.5);
+}
+.btn-general-shift-container {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  margin: 10px auto;
+}
+
+.encrypt-general-shift,
+.decrypt-general-shift {
+  padding: 10px 14px;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.encrypt-general-shift {
+  background-color: #2563eb;
+  color: white;
+}
+
+.decrypt-general-shift {
+  background-color: #dc2626;
+  color: white;
+}
+
+.result-general-shift {
+  font-weight: bold;
+  color: #ffd41d;
+  margin-left: 5px;
+}
+
+/* RSA SECTION */
+.rsa-content {
+  margin-top: 20px;
+}
+
+.rsa-demo-title {
+  margin-top: 20px;
+  font-weight: bold;
+  border: 1px solid white;
+  padding: 10px;
+  display: inline-block;
+}
+
+.rsa-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.rsa-form input {
+  padding: 12px 20px;
+  margin: 15px 0;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 16px;
+  background-color: #1f2937;
+  color: white;
+}
+
+.rsa-form input:focus {
+  border: 1px solid #ffd41d;
+  box-shadow: 0 0 8px rgba(255, 212, 29, 0.5);
+}
+
+.rsa-btn-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.rsa-encrypt,
+.rsa-decrypt {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.rsa-encrypt {
+  background-color: #2563eb;
+  color: white;
+}
+
+.rsa-decrypt {
+  background-color: #dc2626;
+  color: white;
+}
+
+.rsa-result {
+  margin-top: 20px;
+  color: #ffd41d;
+}

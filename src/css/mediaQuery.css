@@ -1,0 +1,230 @@
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (max-width: 1800px) {
+}
+/* X-Large devices (large desktops, 1200px and up) */
+@media (max-width: 1200px) {
+  .classical-cryptography {
+    width: 95%;
+  }
+}
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 992px) {
+  .side-navbar {
+    width: 30%;
+  }
+
+  .content-outline li a {
+    font-size: clamp(14px, 1.2vw, 16px);
+  }
+
+  .ruppLogo {
+    width: 90px;
+    height: 90px;
+  }
+
+  .faculty {
+    width: 90px;
+    height: 90px;
+  }
+
+  .universityNameEn {
+    font-size: 20px;
+  }
+
+  .universityNameKh {
+    font-size: 20px;
+  }
+
+  .caesar-cipher-content {
+    flex-direction: column;
+  }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+  .main {
+    padding: 0 10px;
+  }
+
+  .classical-cryptography {
+    width: 95%;
+  }
+
+  .side-navbar {
+    width: 35%;
+    min-width: 35%;
+  }
+  .s elfIntroduce-header {
+    height: 500px;
+  }
+
+  .first-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .content-outline {
+    margin-top: 0px;
+  }
+
+  .ruppLogo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .faculty {
+    width: 80px;
+    height: 80px;
+  }
+
+  .universityNameKh {
+    font-size: 16px;
+  }
+
+  .second-content,
+  .third-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .general-shift-content {
+    width: 100%;
+  }
+
+  .btn-general-shift-container {
+    gap: 8px;
+  }
+
+  /* RSA Responsive Tablet */
+  .rsa-form {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .rsa-btn-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .rsa-encrypt,
+  .rsa-decrypt {
+    width: 100%;
+  }
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+  .side-navbar {
+    width: 80%;
+    min-width: 80%;
+  }
+
+  .content-outline {
+    margin-top: 0px;
+  }
+
+  .ruppLogo {
+    width: 70px;
+    height: 70px;
+  }
+  .faculty {
+    width: 70px;
+    height: 70px;
+  }
+  .universityNameEn {
+    font-size: 16px;
+  }
+  .universityNameKh {
+    font-size: 16px;
+  }
+  .second-content {
+    font-size: 16px;
+  }
+  .third-content {
+    font-size: 16px;
+  }
+  .classical-cryptography {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .guide {
+    width: 95%;
+  }
+
+  .btn-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .encrypt-caesar-cipher,
+  .decrypt-caesar-cipher {
+    width: 100%;
+  }
+  /* =========================
+   General Shift Responsive
+========================= */
+
+  .general-shift-content {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .general-shift-enter {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .input-general-shift-text,
+  .input-general-shift-key {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .btn-general-shift-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .encrypt-general-shift,
+  .decrypt-general-shift {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .result-general-shift {
+    display: inline-block;
+    word-break: break-word;
+  }
+
+  /* =========================
+   RSA Responsive Mobile
+========================= */
+
+  .rsa-form input {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .rsa-btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .rsa-encrypt,
+  .rsa-decrypt {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .rsa-result {
+    word-break: break-word;
+    font-size: 14px;
+  }
+}
