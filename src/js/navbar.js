@@ -2,42 +2,56 @@ const menuBar = document.getElementById("menuBar");
 const navBar = document.querySelector(".navbar");
 const sideNavbar = document.querySelector(".side-navbar");
 
-// --- MOBILE & DESKTOP CLICK TOGGLE ---
+// ===============================
+// MOBILE CLICK TOGGLE
+// ===============================
 menuBar.addEventListener("click", (e) => {
-  e.stopPropagation(); // Prevents the click from immediately closing the sidebar
+  e.stopPropagation();
   sideNavbar.classList.toggle("active");
 });
 
-// Close sidebar when clicking anywhere else on the screen (Good for mobile)
+// Close sidebar when clicking outside (mobile + desktop)
 document.addEventListener("click", (event) => {
-  const isClickInsideSidebar = sideNavbar.contains(event.target);
-  const isClickOnButton = menuBar.contains(event.target);
+  const isInsideNavbar = navBar.contains(event.target);
+  const isInsideSidebar = sideNavbar.contains(event.target);
 
-  if (!isClickInsideSidebar && !isClickOnButton) {
+  if (!isInsideNavbar && !isInsideSidebar) {
     sideNavbar.classList.remove("active");
   }
 });
 
-// --- DESKTOP HOVER (Optional) ---
-// We keep this so it still feels snappy on PC
+// ===============================
+// DESKTOP HOVER OPEN
+// ===============================
 menuBar.addEventListener("mouseenter", () => {
   if (window.innerWidth > 768) {
-    // Only trigger hover on larger screens
     sideNavbar.classList.add("active");
   }
 });
 
-// Hide sidebar when leaving the navbar/sidebar area
-const hideArea = [navBar, sideNavbar];
-hideArea.forEach((element) => {
-  element.addEventListener("mouseleave", () => {
-    if (window.innerWidth > 768) {
-      sideNavbar.classList.remove("active");
-    }
-  });
+sideNavbar.addEventListener("mouseenter", () => {
+  if (window.innerWidth > 768) {
+    sideNavbar.classList.add("active");
+  }
 });
 
-// Close sidebar when a link inside it is clicked (Useful for mobile navigation)
+// ===============================
+// DESKTOP AUTO CLOSE WHEN LEAVING
+// ===============================
+document.addEventListener("mousemove", (event) => {
+  if (window.innerWidth > 768) {
+    const isInsideNavbar = navBar.contains(event.target);
+    const isInsideSidebar = sideNavbar.contains(event.target);
+
+    if (!isInsideNavbar && !isInsideSidebar) {
+      sideNavbar.classList.remove("active");
+    }
+  }
+});
+
+// ===============================
+// CLOSE WHEN CLICKING LINK (MOBILE)
+// ===============================
 const navLinks = document.querySelectorAll(".content-outline a");
 navLinks.forEach((link) => {
   link.addEventListener("click", () => {
