@@ -658,7 +658,11 @@ p {
   background-color: #b91c1c;
   transform: translateY(-2px);
 }
-
+.rsa-ciphertext {
+  word-wrap: break-word;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
 .rsa-ciphertext,
 .rsa-decrypted {
   margin-top: 10px;
@@ -674,4 +678,13 @@ p {
 
 .rsa-form hr {
   border: 1px solid #374151;
+}
+#p-validation,
+#q-validation {
+  width: 100%;
+  max-width: 400px;
+  text-align: left;
+  height: 20px; /* Gives it space even when empty */
+  font-weight: bold;
+  display: block !important; /* Forces it to show */
 }
