@@ -2,7 +2,6 @@
 // ===== RSA MATH FUNCTIONS =====
 // ===============================
 
-// 1. Greatest Common Divisor
 function gcd(a, b) {
   while (b !== 0) {
     let temp = b;
@@ -12,7 +11,6 @@ function gcd(a, b) {
   return a;
 }
 
-// 2. Check if number is prime
 function isPrime(num) {
   if (num <= 1) return false;
   for (let i = 2; i <= Math.sqrt(num); i++) {
@@ -21,7 +19,6 @@ function isPrime(num) {
   return true;
 }
 
-// 3. Modular Inverse (Extended Euclidean Algorithm)
 function modInverse(e, phi) {
   let [old_r, r] = [phi, e];
   let [old_t, t] = [0, 1];
@@ -32,13 +29,12 @@ function modInverse(e, phi) {
     [old_t, t] = [t, old_t - quotient * t];
   }
 
-  if (old_r !== 1) return null; // No inverse exists
+  if (old_r !== 1) return null;
 
   if (old_t < 0) old_t += phi;
   return old_t;
 }
 
-// 4. Fast Modular Exponentiation
 function modPow(base, exponent, modulus) {
   let result = 1;
   base = base % modulus;
@@ -55,101 +51,125 @@ function modPow(base, exponent, modulus) {
 }
 
 // ===============================
-// ===== UI LOGIC =====
+// ===== RSA LOGIC =====
 // ===============================
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Inputs
   const pInput = document.querySelector(".rsa-p");
   const qInput = document.querySelector(".rsa-q");
-  const eInput = document.querySelector(".rsa-e");
-  const messageInput = document.querySelector(".rsa-message");
 
-  // Buttons
+  const generateBtn = document.querySelector(".rsa-generate");
   const encryptBtn = document.querySelector(".rsa-encrypt");
   const decryptBtn = document.querySelector(".rsa-decrypt");
 
-  // Outputs
+  const plaintextInput = document.querySelector(".rsa-plaintext");
+  const cipherInput = document.querySelector(".rsa-ciphertext-input");
+
   const nDisplay = document.querySelector(".rsa-n");
   const phiDisplay = document.querySelector(".rsa-phi");
-  const dDisplay = document.querySelector(".rsa-d");
-  const encryptedDisplay = document.querySelector(".rsa-encrypted");
+  const eDisplay = document.querySelector(".rsa-e-display");
+  const dDisplay = document.querySelector(".rsa-d-display");
+  const cipherDisplay = document.querySelector(".rsa-ciphertext");
   const decryptedDisplay = document.querySelector(".rsa-decrypted");
 
-  let currentD = null;
-  let currentN = null;
+  let n, phi, e, d;
 
   // ===============================
-  // ENCRYPT
+  // GENERATE KEYS
   // ===============================
-  encryptBtn.addEventListener("click", () => {
+  generateBtn.addEventListener("click", () => {
     const p = parseInt(pInput.value);
     const q = parseInt(qInput.value);
-    const e = parseInt(eInput.value);
-    const m = parseInt(messageInput.value);
-
-    // Basic validation
-    if (isNaN(p) || isNaN(q) || isNaN(e) || isNaN(m)) {
-      alert("Please enter all values.");
-      return;
-    }
 
     if (!isPrime(p) || !isPrime(q)) {
-      alert("Both p and q must be prime numbers.");
+      alert("p and q must be prime numbers.");
       return;
     }
 
-    const n = p * q;
-    const phi = (p - 1) * (q - 1);
+    n = p * q;
+    phi = (p - 1) * (q - 1);
 
-    if (gcd(e, phi) !== 1) {
-      alert("Public key 'e' must be coprime with φ(n).");
+    // Finding e such that 1 < e < phi and gcd(e, phi) = 1
+    let foundE = false;
+    for (let i = 2; i < phi; i++) {
+      if (gcd(i, phi) === 1) {
+        e = i;
+        foundE = true;
+        break;
+      }
+    }
+
+    if (!foundE) {
+      alert("Could not find a valid 'e'. Try different primes.");
       return;
     }
 
-    if (m >= n) {
-      alert("Message must be smaller than n (p × q).");
-      return;
-    }
+    d = modInverse(e, phi);
 
-    const d = modInverse(e, phi);
-
-    if (d === null) {
-      alert("Could not compute modular inverse. Try different 'e'.");
-      return;
-    }
-
-    const encrypted = modPow(m, e, n);
-
-    // Save for decryption
-    currentD = d;
-    currentN = n;
-
-    // Display results
     nDisplay.textContent = n;
     phiDisplay.textContent = phi;
+    eDisplay.textContent = e;
     dDisplay.textContent = d;
-    encryptedDisplay.textContent = encrypted;
+
+    cipherDisplay.textContent = "-";
     decryptedDisplay.textContent = "-";
   });
 
   // ===============================
-  // DECRYPT
+  // ENCRYPT TEXT (Mapping A=0, B=1 for Small Modulus)
+  // ===============================
+  encryptBtn.addEventListener("click", () => {
+    if (!n || !e) {
+      alert("Generate keys first.");
+      return;
+    }
+
+    const text = plaintextInput.value.toUpperCase();
+    let encryptedArray = [];
+
+    for (let i = 0; i < text.length; i++) {
+      let charCode = text.charCodeAt(i);
+      let valToEncrypt;
+
+      // Map A-Z to 0-25 so it stays smaller than n (modulus)
+      if (charCode >= 65 && charCode <= 90) {
+        valToEncrypt = charCode - 65;
+      } else {
+        valToEncrypt = charCode; // Keep other chars as is (though they may break if > n)
+      }
+
+      let encryptedChar = modPow(valToEncrypt, e, n);
+      encryptedArray.push(encryptedChar);
+    }
+
+    cipherDisplay.textContent = encryptedArray.join(" ");
+    cipherInput.value = encryptedArray.join(" ");
+  });
+
+  // ===============================
+  // DECRYPT TEXT
   // ===============================
   decryptBtn.addEventListener("click", () => {
-    if (currentD === null || currentN === null) {
-      alert("Please encrypt a message first.");
+    if (!n || !d) {
+      alert("Generate keys first.");
       return;
     }
 
-    const cipherText = parseInt(encryptedDisplay.textContent);
+    // Split by space and filter out any empty strings
+    const cipherNumbers = cipherInput.value.trim().split(/\s+/).filter(Boolean);
+    let decryptedText = "";
 
-    if (isNaN(cipherText)) {
-      alert("Nothing to decrypt.");
-      return;
-    }
+    cipherNumbers.forEach((num) => {
+      let decryptedVal = modPow(parseInt(num), d, n);
 
-    const decrypted = modPow(cipherText, currentD, currentN);
-    decryptedDisplay.textContent = decrypted;
+      // Convert back from 0-25 range to A-Z
+      if (decryptedVal >= 0 && decryptedVal <= 25) {
+        decryptedText += String.fromCharCode(decryptedVal + 65);
+      } else {
+        decryptedText += String.fromCharCode(decryptedVal);
+      }
+    });
+
+    decryptedDisplay.textContent = decryptedText;
   });
 });

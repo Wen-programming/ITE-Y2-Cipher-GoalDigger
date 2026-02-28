@@ -288,30 +288,52 @@
           <div class="rsa-demo-title">RSA Demo</div>
 
           <form class="rsa-form">
+            <!-- Prime Inputs -->
             <label>Enter Prime p:</label>
             <input type="number" class="rsa-p" placeholder="Example: 3" />
 
             <label>Enter Prime q:</label>
             <input type="number" class="rsa-q" placeholder="Example: 11" />
 
-            <label>Enter Public Key e:</label>
-            <input type="number" class="rsa-e" placeholder="Example: 3" />
+            <button type="button" class="rsa-generate">Generate Keys</button>
 
-            <label>Enter Message (Number less than n):</label>
-            <input type="number" class="rsa-message" placeholder="Example: 7" />
+            <hr style="width: 100%; margin: 20px 0" />
 
-            <div class="rsa-btn-container">
-              <button type="button" class="rsa-encrypt">Encrypt</button>
-              <button type="button" class="rsa-decrypt">Decrypt</button>
-            </div>
+            <!-- Generated Keys -->
+            <p><b>n:</b> <span class="rsa-n">-</span></p>
+            <p><b>φ(n):</b> <span class="rsa-phi">-</span></p>
+            <p><b>Public Key (e):</b> <span class="rsa-e-display">-</span></p>
+            <p><b>Private Key (d):</b> <span class="rsa-d-display">-</span></p>
 
-            <div class="rsa-result">
-              <p><b>n:</b> <span class="rsa-n">-</span></p>
-              <p><b>φ(n):</b> <span class="rsa-phi">-</span></p>
-              <p><b>Private Key (d):</b> <span class="rsa-d">-</span></p>
-              <p><b>Encrypted:</b> <span class="rsa-encrypted">-</span></p>
-              <p><b>Decrypted:</b> <span class="rsa-decrypted">-</span></p>
-            </div>
+            <hr style="width: 100%; margin: 20px 0" />
+
+            <!-- TEXT ENCRYPTION -->
+            <label>Enter Plaintext (Text or Number):</label>
+            <input
+              type="text"
+              class="rsa-plaintext"
+              placeholder="Example: HELLO"
+            />
+
+            <button type="button" class="rsa-encrypt">Encrypt</button>
+
+            <p><b>Ciphertext:</b></p>
+            <div class="rsa-ciphertext" style="word-wrap: break-word">-</div>
+
+            <hr style="width: 100%; margin: 20px 0" />
+
+            <!-- TEXT DECRYPTION -->
+            <label>Enter Ciphertext (space separated numbers):</label>
+            <input
+              type="text"
+              class="rsa-ciphertext-input"
+              placeholder="Example: 10 4 9 9 0"
+            />
+
+            <button type="button" class="rsa-decrypt">Decrypt</button>
+
+            <p><b>Decrypted Message:</b></p>
+            <div class="rsa-decrypted">-</div>
           </form>
         </div>
       </section>

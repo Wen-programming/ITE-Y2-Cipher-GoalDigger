@@ -109,6 +109,25 @@
   .rsa-decrypt {
     width: 100%;
   }
+
+  .rsa-form {
+    padding: 20px;
+  }
+
+  .rsa-form input {
+    font-size: 15px;
+  }
+
+  .rsa-generate,
+  .rsa-encrypt,
+  .rsa-decrypt {
+    font-size: 15px;
+  }
+
+  .rsa-ciphertext,
+  .rsa-decrypted {
+    font-size: 15px;
+  }
 }
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 576px) {
@@ -226,5 +245,27 @@
   .rsa-result {
     word-break: break-word;
     font-size: 14px;
+  }
+
+  .rsa-form {
+    padding: 15px;
+  }
+
+  .rsa-form input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .rsa-generate,
+  .rsa-encrypt,
+  .rsa-decrypt {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .rsa-ciphertext,
+  .rsa-decrypted {
+    font-size: 14px;
+    padding: 10px;
   }
 }

@@ -576,3 +576,102 @@ p {
   margin-top: 20px;
   color: #ffd41d;
 }
+
+/* ===============================
+   RSA SECTION IMPROVED DESIGN
+================================= */
+
+.rsa-form {
+  width: 100%;
+  max-width: 600px;
+  background: #1f2937;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  margin-top: 20px;
+
+  margin: 0 auto; /* center horizontally */
+}
+
+.rsa-form label {
+  align-self: flex-start;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.rsa-form input {
+  padding: 12px 20px;
+  margin: 10px 0;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #374151;
+  outline: none;
+  font-size: 16px;
+  background-color: #111827;
+  color: white;
+}
+
+.rsa-form input:focus {
+  border: 1px solid #ffd41d;
+  box-shadow: 0 0 8px rgba(255, 212, 29, 0.5);
+}
+
+.rsa-generate,
+.rsa-encrypt,
+.rsa-decrypt {
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  width: 100%;
+}
+
+.rsa-generate {
+  background-color: #10b981;
+  color: white;
+}
+
+.rsa-generate:hover {
+  background-color: #059669;
+  transform: translateY(-2px);
+}
+
+.rsa-encrypt {
+  background-color: #2563eb;
+  color: white;
+}
+
+.rsa-encrypt:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.rsa-decrypt {
+  background-color: #dc2626;
+  color: white;
+}
+
+.rsa-decrypt:hover {
+  background-color: #b91c1c;
+  transform: translateY(-2px);
+}
+
+.rsa-ciphertext,
+.rsa-decrypted {
+  margin-top: 10px;
+  padding: 15px;
+  background-color: #111827;
+  border-radius: 8px;
+  border: 1px solid #374151;
+  min-height: 40px;
+  word-break: break-word;
+  font-weight: bold;
+  color: #ffd41d;
+}
+
+.rsa-form hr {
+  border: 1px solid #374151;
+}
